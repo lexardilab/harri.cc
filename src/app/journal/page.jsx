@@ -1,6 +1,6 @@
 export default function Home() {
     return (
-      <div>Journal</div>
+      <div>Journal prueba</div>
     );
   }
   
