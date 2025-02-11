@@ -13,7 +13,7 @@ import {
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between sm:px-2 px-8">
+    <nav className="flex items-center justify-between px-2 lg:px-8">
       <div className="w-full pl-2">
         <Link href="/">
           <Image
@@ -25,18 +25,7 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <div className="pr-12">
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink className="px-2">Link</NavigationMenuLink>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      </div>
+      
     </nav>
   );
 }
