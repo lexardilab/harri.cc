@@ -1,5 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu";
 
 export default function Navbar() {
   return (
@@ -15,7 +25,18 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      
+      <div className="pr-12">
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink className="px-2">Link</NavigationMenuLink>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
     </nav>
   );
 }
