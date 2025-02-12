@@ -37,7 +37,7 @@ export default function Header() {
       <div>
         <div className="flex justify-center items-center lg:py-6 lg;w-screen">
           <CldImage
-            src="https://res.cloudinary.com/dxkxg2ivb/image/upload/v1739269936/harri.cc/Camiseta%20Azpitik/DSCF0140_rwomwr.webp" // Use this sample image or upload your own via the Media Explorer
+            src="https://res.cloudinary.com/dxkxg2ivb/image/upload/v1739343501/harri.cc/Camiseta%20Azpitik/ToteBorobil_umlcdy.jpg" // Use this sample image or upload your own via the Media Explorer
             width="1980" // Transform the image: auto-crop to square aspect_ratio
             height="1280"
             alt="Harri.cc"
