@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <>
       <main className="grid lg:grid-cols-2 gap-1 sm:grid-cols-1">
-        <div className="lg:pl-12 lg:pt-12 px-2 pb-4">
+        <div className="lg:pl-12 lg:pt-12 px-2 pb-4 items-center flex justify-center">  
           <h1 className="lg:text-6xl/16 antialiased line-clamp-3 sm:text-xl">
             "A veces no se ve nada en la superficie, pero por debajo de ella
             todo está ardiendo"
