@@ -8,7 +8,7 @@ export default function Content() {
       <main className="grid lg:grid-cols-2 gap-1 sm:grid-cols-1">
         <div className="lg:pl-12 lg:pt-12 px-2 pb-4 items-center flex justify-center">  
         <CldImage
-            src="https://res.cloudinary.com/dxkxg2ivb/image/upload/v1739350535/harri.cc/Camiseta%20Azpitik/GorraFix_1_npffbj.webp" // Use this sample image or upload your own via the Media Explorer
+            src="https://res.cloudinary.com/dxkxg2ivb/image/upload/v1739441637/harri.cc/Camiseta%20Azpitik/Tote_Azpitik_Mustard_xkmxp9.webp" // Use this sample image or upload your own via the Media Explorer
             width="700" // Transform the image: auto-crop to square aspect_ratio
             height="700"
             alt="Harri.cc"
