@@ -18,7 +18,7 @@ export default function Navbar() {
         <Link href="/">
           <Image
             className="py-6"
-            src="/Logo_Harri_1.svg"
+            src="/Logo_Harri_2.svg"
             width="50"
             height="40"
             alt=""
