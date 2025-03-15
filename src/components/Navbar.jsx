@@ -14,7 +14,7 @@ import {
 export default function Navbar() {
   return (
     <nav className="flex items-center justify-between px-2 lg:px-8">
-      <div className="lg:w-full pl-2 sm:items-center justify-center flex">
+      <div className="items-center justify-center flex">
         <Link href="/">
           <Image
             className="py-6"
