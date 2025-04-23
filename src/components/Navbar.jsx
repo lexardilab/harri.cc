@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import HamburgerMenu from "./HamburguerMenu";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,8 +15,7 @@ import {
 export default function Navbar() {
   return (
     <nav className="flex items-center justify-between px-2 lg:px-8">
-      <div className="items-center justify-center flex">
-        <Link href="/">
+        <div><Link href="/">
           <Image
             className="py-6"
             src="/Logo_Harri_2.svg"
@@ -23,8 +23,9 @@ export default function Navbar() {
             height="40"
             alt=""
           />
-        </Link>
-      </div>
+        </Link></div>
+        <div><HamburgerMenu /></div>
+        
       
     </nav>
   );
