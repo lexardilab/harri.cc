@@ -92,11 +92,11 @@ export default function Navbar() {
               Journal
             </Link>
             <Link 
-              href="/servicios" 
+              href="/tienda" 
               className="text-3xl font-medium text-gray-800 hover:text-gray-600 py-2"
               onClick={() => setIsOpen(false)}
             >
-              Servicios
+              Tienda
             </Link>
             <Link 
               href="/contacto" 
