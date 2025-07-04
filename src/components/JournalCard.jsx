@@ -4,6 +4,11 @@ import { urlFor } from "@/app/lib/sanity";
 export default function BlogCard({ post }) {
   return (
     <Link href={`/journal/${post.slug.current}`} className="">
+      <div className="">
+        <h1 className="pb-4">{post.title}</h1>
+        
+
+      </div>
       <article className="">
         {post.mainImage && (
           <img
@@ -12,10 +17,8 @@ export default function BlogCard({ post }) {
             className=""
           />
         )}
-        <div className="">
-          <h1 className="">{post.title}</h1>
-        </div>
       </article>
+      <h1 className="pb-4">{post.subtitle}</h1>
     </Link>
   );
 }

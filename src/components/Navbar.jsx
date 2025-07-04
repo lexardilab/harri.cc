@@ -14,10 +14,10 @@ import {
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-2 lg:px-8">
+    <nav className="flex items-center justify-between px-2 lg:px-8 border-b-1 border-black">
         <div><Link href="/">
           <Image
-            className="py-6"
+            className="py-4"
             src="/Logo_Harri_2.svg"
             width="50"
             height="40"
