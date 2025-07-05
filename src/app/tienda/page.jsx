@@ -3,7 +3,8 @@ import ProductCard from '../../components/ProductCard'
 
 async function getProducts() {
   const query = `*[_type == "product"] | order(publishedAt desc) {
-    title,
+    title,+
+    subtitle,
     slug,
     mainImage,
   }`

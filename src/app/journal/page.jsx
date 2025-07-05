@@ -4,6 +4,7 @@ import JournalCard from "../../components/JournalCard";
 async function getPosts() {
   const query = `*[_type == "post"] | order(publishedAt desc) {
     title,
+    subtitle,
     slug,
     mainImage,
   }`;
