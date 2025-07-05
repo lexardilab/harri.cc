@@ -5,7 +5,7 @@ export default function BlogCard({ post }) {
   return (
     <Link href={`/journal/${post.slug.current}`} className="">
       <div className="">
-        <h1 className="pb-4">{post.title}</h1>
+        <h1 className="pb-2">{post.title}</h1>
         
 
       </div>
@@ -18,7 +18,7 @@ export default function BlogCard({ post }) {
           />
         )}
       </article>
-      <h1 className="pb-4">{post.subtitle}</h1>
+      <h1 className="py-2">{post.subtitle}</h1>
     </Link>
   );
 }
