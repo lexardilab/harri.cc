@@ -24,9 +24,9 @@ export default function ProductOptions({ product }) {
   };
 
   return (
-    <div>
+    <div className='flex items-center'>
       {/* Colores */}
-      <div className="flex gap-3">
+      <div className="flex gap-3 pr-12">
         {product.colors?.map((color, idx) => (
           <button
             key={color || idx}
@@ -53,7 +53,7 @@ export default function ProductOptions({ product }) {
       </div>
 
       {/* Tallas */}
-      <div className="flex gap-3">
+      <div className="flex pr-12 gap-3">
         {product.sizes?.map((size) => (
           <button
             key={size}
@@ -73,10 +73,10 @@ export default function ProductOptions({ product }) {
       <button
         disabled={!selectedColor || !selectedSize}
         onClick={handleAddToCart}
-        className={`mt-6 px-6 py-2 rounded text-white font-semibold ${
+        className={` py-2  ${
           selectedColor && selectedSize
-            ? 'bg-black hover:bg-gray-800'
-            : 'bg-gray-400 cursor-not-allowed'
+            ? ' '
+            : 'text-xl font-bold leading-tight'
         }`}
       >
         Añadir al carrito

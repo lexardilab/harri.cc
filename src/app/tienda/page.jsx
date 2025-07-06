@@ -16,7 +16,7 @@ export default async function BlogPage() {
 
   return (
     <div className="pb-6">
-      <div className="grid grid-cols-4 px-2 gap-2">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 px-2 gap-2">
         {products.map((product) => (
           <ProductCard key={product.slug.current} product={product} />
         ))}
