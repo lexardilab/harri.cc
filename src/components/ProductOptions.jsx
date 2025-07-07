@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useCartStore } from '../app/utils/cartStore'; // Ajusta ruta
+import { useState } from "react";
+import { useCartStore } from "../app/utils/cartStore"; // Ajusta ruta
 
 export default function ProductOptions({ product }) {
-  const [selectedColor, setSelectedColor] = useState('');
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
   const addToCart = useCartStore((state) => state.addToCart);
 
   const handleAddToCart = () => {
@@ -20,19 +20,21 @@ export default function ProductOptions({ product }) {
       price: product.price, // Asegúrate que es price no prize
     });
 
-    alert('Producto añadido al carrito');
+    alert("Producto añadido al carrito");
   };
 
   return (
-    <div className='flex items-center'>
+    <div className="flex items-center">
       {/* Colores */}
       <div className="flex gap-3 pr-12">
         {product.colors?.map((color, idx) => (
           <button
             key={color || idx}
             onClick={() => setSelectedColor(color)}
-            className={`w-10 h-10 rounded-full border-2 ${
-              selectedColor === color ? 'ring-2 ring-black border-black' : 'border-gray-300'
+            className={`w-10 h-10 rounded-full border ${
+              selectedColor === color
+                ? "ring-2 ring-black border-black"
+                : "border-gray-300"
             }`}
             style={{ backgroundColor: color }}
             title={color}
@@ -44,9 +46,7 @@ export default function ProductOptions({ product }) {
                 stroke="currentColor"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
+              ></svg>
             )}
           </button>
         ))}
@@ -58,10 +58,10 @@ export default function ProductOptions({ product }) {
           <button
             key={size}
             onClick={() => setSelectedSize(size)}
-            className={`w-12 h-12 rounded-full border ${
+            className={`w-10 h-10 rounded-full border ${
               selectedSize === size
-                ? 'bg-black text-white border-black'
-                : 'bg-white text-black border-gray-300'
+                ? "ring-2 ring-black border-black"
+                : "border-gray-300"
             }`}
           >
             {size}
@@ -75,8 +75,8 @@ export default function ProductOptions({ product }) {
         onClick={handleAddToCart}
         className={` py-2  ${
           selectedColor && selectedSize
-            ? ' '
-            : 'text-xl font-bold leading-tight'
+            ? " text-xl font-bold leading-tight"
+            : "text-xl font-bold leading-tight"
         }`}
       >
         Añadir al carrito
