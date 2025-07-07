@@ -71,7 +71,7 @@ export default function CookieConsent() {
   return (
     <>
       {showBanner && (
-        <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="fixed bottom-0 left-0 right-0 bg-black text-white p-4 z-50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="max-w-xl text-sm">
             Usamos cookies para mejorar tu experiencia, analizar el tráfico y mostrar publicidad personalizada.{' '}
             <a href="/politica-cookies" className="underline">Más info</a>.
