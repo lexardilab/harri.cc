@@ -12,7 +12,7 @@ export default function BlogCard({ post }) {
       <article className="">
         {post.mainImage && (
           <img
-            src={urlFor(post.mainImage).width(400).height(600).url()}
+            src={urlFor(post.mainImage).width(500).height(600).url()}
             alt={post.title}
             className=""
           />

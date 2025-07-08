@@ -1,38 +1,33 @@
-import { client, urlFor } from '../../lib/sanity'
-import { PortableText } from '@portabletext/react'
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
+import { client, urlFor } from "../../lib/sanity";
+import { PortableText } from "@portabletext/react";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 
 // Función para obtener un post específico
 async function getPost(slug) {
   const query = `*[_type == "post" && slug.current == $slug][0] {
     title,
     slug,
-    publishedAt,
-    excerpt,
+    description,
     mainImage,
+    firstImage,
     body,
-    author->{
-      name,
-      image
-    },
-    categories[]->{
-      title
-    }
-  }`
-  
-  const post = await client.fetch(query, { slug })
-  return post
+    
+  }`;
+
+  const post = await client.fetch(query, { slug });
+  return post;
 }
 
 // Función para obtener todos los slugs (para generateStaticParams)
 async function getAllPostSlugs() {
   const query = `*[_type == "post" && defined(slug.current)] {
     "slug": slug.current
-  }`
-  
-  const posts = await client.fetch(query)
-  return posts
+  }`;
+
+  const posts = await client.fetch(query);
+  return posts;
 }
 
 // Componentes personalizados para PortableText
@@ -42,7 +37,7 @@ const components = {
       <div className="my-8">
         <img
           src={urlFor(value).width(800).height(400).url()}
-          alt={value.alt || 'Imagen del artículo'}
+          alt={value.alt || "Imagen del artículo"}
           className="w-full rounded-lg shadow-lg"
         />
         {value.caption && (
@@ -86,9 +81,7 @@ const components = {
     strong: ({ children }) => (
       <strong className="font-bold text-gray-900">{children}</strong>
     ),
-    em: ({ children }) => (
-      <em className="italic text-gray-700">{children}</em>
-    ),
+    em: ({ children }) => <em className="italic text-gray-700">{children}</em>,
   },
   list: {
     bullet: ({ children }) => (
@@ -106,24 +99,24 @@ const components = {
     bullet: ({ children }) => <li className="ml-4">{children}</li>,
     number: ({ children }) => <li className="ml-4">{children}</li>,
   },
-}
+};
 
 // Generar parámetros estáticos para mejor rendimiento
 export async function generateStaticParams() {
-  const posts = await getAllPostSlugs()
+  const posts = await getAllPostSlugs();
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
 // Generar metadata dinámicamente
 export async function generateMetadata({ params }) {
-  const post = await getPost(params.slug)
-  
+  const post = await getPost(params.slug);
+
   if (!post) {
     return {
-      title: 'Post no encontrado',
-    }
+      title: "Post no encontrado",
+    };
   }
 
   return {
@@ -132,71 +125,57 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(630).url()] : [],
+      images: post.firstImage
+        ? [urlFor(post.firstImage).width(1200).height(630).url()]
+        : [],
     },
-  }
+  };
 }
 
 // Componente principal de la página
 export default async function BlogPostPage({ params }) {
-  const post = await getPost(params.slug)
+  const post = await getPost(params.slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header del post */}
-      <div className="bg-white shadow-sm">
-        <div className="container px-4 py-6 mx-auto">
-          
-          
-          <div className="max-w-4xl mx-auto">
-            <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
-              {post.title}
-            </h1>
-            
-            {post.excerpt && (
-              <p className="mb-6 text-xl leading-relaxed text-gray-600">
-                {post.excerpt}
-              </p>
-            )}
-            
-            
-          </div>
-        </div>
+      <div className="flex justify-center py-4">
+        <h1 className="text-3xl">{post.title}</h1>
       </div>
-
+      <div className="flex justify-center pb-12">
+        <p className="justify-center w-1/4 text-center ">{post.description}</p>
+      </div>
       {/* Imagen principal */}
-      {post.mainImage && (
-        <div className="relative w-full h-64 overflow-hidden md:h-96">
-          <img
-            src={urlFor(post.mainImage).width(1200).height(600).url()}
-            alt={post.title}
-            className="object-cover w-full h-full"
-          />
+      {post.firstImage && (
+        <div className="px-6">
+          <Image
+                    src={urlFor(post.firstImage).width().height().url()}
+                    alt={post.title || "Product image"}
+                    width={1920}
+                    height={1080}
+                    className="object-cover w-full"
+                  />
         </div>
       )}
 
       {/* Contenido del post */}
-      <div className="container px-4 py-8 mx-auto">
-        <div className="max-w-4xl mx-auto">
-          <article className="p-8 bg-white rounded-lg shadow-sm md:p-12">
-            <div className="prose prose-lg max-w-none">
+      <div className="">
+        <div className="">
+          <article className="">
+            <div className="">
               {post.body && (
-                <PortableText
-                  value={post.body}
-                  components={components}
-                />
+                <PortableText value={post.body} components={components} />
               )}
             </div>
           </article>
-          
+
           {/* Navegación adicional */}
-          
         </div>
       </div>
     </div>
-  )
+  );
 }

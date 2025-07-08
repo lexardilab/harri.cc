@@ -13,6 +13,7 @@ async function getPosts() {
 
 export default async function BlogPage() {
   const posts = await getPosts();
+  console.log("POST:", post)
 
   return (
     <div className="pb-6">
@@ -28,7 +29,7 @@ export default async function BlogPage() {
           dolore autem esse quaerat et.
         </p>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center px-4">
       <div className="grid grid-cols-4 gap-2">
         {posts.map((post) => (
           <JournalCard key={post.slug.current} post={post} />

@@ -72,5 +72,28 @@ export const blockContentType = defineType({
         }
       ]
     }),
+    defineArrayMember({
+      type: 'object',
+      name: 'galleryImageRef',
+      title: 'Imagen desde galería',
+      fields: [
+        {
+          name: 'imageIndex',
+          type: 'number',
+          title: 'Índice en la galería (empieza desde 0)',
+          validation: (Rule) => Rule.min(0),
+        },
+      ],
+      preview: {
+        select: {
+          index: 'imageIndex',
+        },
+        prepare({ index }) {
+          return {
+            title: `Imagen de galería #${index}`,
+          };
+        },
+      },
+    }),
   ],
 })
